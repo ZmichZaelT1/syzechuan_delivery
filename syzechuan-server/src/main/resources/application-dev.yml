@@ -1,4 +1,4 @@
-sky:
+syzechuan:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     host: localhost
@@ -6,3 +6,9 @@ sky:
     database: syzechuan_delivery
     username: root
     password: Zzt!12345
+
+  alioss:
+    access-key-id: LTAI5tSoMRUE7LjemCzFjXoE
+    endpoint: oss-us-east-1.aliyuncs.com
+    access-key-secret: YFz1Pke4TKaER8juqqcKpIURCKQ842
+    bucket-name: syzechuan-itcast
