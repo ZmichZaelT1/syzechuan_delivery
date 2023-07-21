@@ -1,9 +1,12 @@
 package com.syzechuan.mapper;
 
+import com.github.pagehelper.Page;
 import com.syzechuan.annotation.AutoFill;
+import com.syzechuan.dto.DishPageQueryDTO;
 import com.syzechuan.entity.Dish;
 import com.syzechuan.enumeration.OperationType;
-import org.apache.ibatis.annotations.Insert;
+import com.syzechuan.vo.DishVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -20,4 +23,16 @@ public interface DishMapper {
 
     @AutoFill(value = OperationType.INSERT)
     void insert(Dish dish);
+
+    Page<DishVO> pageQuery(DishPageQueryDTO dishPageQueryDTO);
+
+    @Select("select * from dish where id = #{id}")
+    Dish getByid(Long id);
+
+
+    @Delete("delete from dish where id = #{id}")
+    void deleteById(Long id);
+
+    @AutoFill(value = OperationType.UPDATE)
+    void update(Dish dish);
 }
