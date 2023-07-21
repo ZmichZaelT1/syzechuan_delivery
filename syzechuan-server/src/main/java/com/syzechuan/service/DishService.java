@@ -2,6 +2,7 @@ package com.syzechuan.service;
 
 import com.syzechuan.dto.DishDTO;
 import com.syzechuan.dto.DishPageQueryDTO;
+import com.syzechuan.entity.Dish;
 import com.syzechuan.result.PageResult;
 import com.syzechuan.vo.DishVO;
 
@@ -18,4 +19,6 @@ public interface DishService {
     DishVO getByIdWithFlavor(Long id);
 
     void updateWithFlavor(DishDTO dishDTO);
+
+    List<Dish> list(Long categoryId);
 }

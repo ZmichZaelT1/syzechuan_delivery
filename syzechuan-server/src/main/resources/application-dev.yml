@@ -12,3 +12,9 @@ syzechuan:
     endpoint: oss-us-east-1.aliyuncs.com
     access-key-secret: YFz1Pke4TKaER8juqqcKpIURCKQ842
     bucket-name: syzechuan-itcast
+
+  redis:
+    host: localhost
+    port: 6379
+    password: Zzt!12345
+    database: 10
