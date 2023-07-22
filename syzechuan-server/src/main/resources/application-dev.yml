@@ -22,3 +22,10 @@ syzechuan:
   wechat:
     appid: wx48bb1f171dda670e
     secret: a8e1c26ec48c88df3d8ce8478b18f212
+    mchid:
+    mch-serial-no:
+    private-key-file-path:
+    api-v3-key:
+    we-chat-pay-cert-file-path:
+    notify-url:
+    refund-notify-url:

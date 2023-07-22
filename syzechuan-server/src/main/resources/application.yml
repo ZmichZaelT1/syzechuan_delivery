@@ -55,3 +55,10 @@ syzechuan:
   wechat:
     appid: ${syzechuan.wechat.appid}
     secret: ${syzechuan.wechat.secret}
+    mchid: ${syzechuan.wechat.mchid}
+    mch-serial-no: ${syzechuan.wechat.mch-serial-no}
+    private-key-file-path: ${syzechuan.wechat.private-key-file-path}
+    api-v3-key: ${syzechuan.wechat.api-v3-key}
+    we-chat-pay-cert-file-path: ${syzechuan.wechat.we-chat-pay-cert-file-path}
+    notify-url: ${syzechuan.wechat.notify-url}
+    refund-notify-url:  ${syzechuan.wechat.refund-notify-url}
