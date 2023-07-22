@@ -1,4 +1,4 @@
-package com.syzechuan.controller.admin;
+package com.syzechuan.controller.user;
 
 import com.syzechuan.result.Result;
 import io.swagger.annotations.Api;
@@ -10,22 +10,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("adminShopController")
-@RequestMapping("/admin/shop")
+@RestController("userShopController")
+@RequestMapping("/user/shop")
 @Api(tags = "Shop Api")
 public class ShopController {
 
     public static final String KEY = "SHOP_STATUS";
 
+
     @Autowired
     RedisTemplate redisTemplate;
-
-    @PutMapping("/{status}")
-    @ApiOperation("Set status")
-    public Result setStatus(@PathVariable Integer status) {
-        redisTemplate.opsForValue().set(KEY, status);
-        return Result.success();
-    }
 
     @PutMapping("/status")
     @ApiOperation("Get status")

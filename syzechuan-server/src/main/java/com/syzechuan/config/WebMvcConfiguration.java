@@ -1,6 +1,7 @@
 package com.syzechuan.config;
 
 import com.syzechuan.interceptor.JwtTokenAdminInterceptor;
+import com.syzechuan.interceptor.JwtTokenUserInterceptor;
 import com.syzechuan.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
 
+    @Autowired
+    private JwtTokenUserInterceptor jwtTokenUserInterceptor;
     /**
      * 注册自定义拦截器
      *
@@ -42,6 +45,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("/admin/**")
                 .excludePathPatterns("/admin/employee/login");
+
+        registry.addInterceptor(jwtTokenUserInterceptor)
+                .addPathPatterns("/user/**")
+                .excludePathPatterns("/user/user/login")
+                .excludePathPatterns("/user/shop/status");
     }
 
     /**
@@ -49,21 +57,38 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @return
      */
     @Bean
-    public Docket docket() {
+    public Docket docket1() {
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("Syzechuan Delivery API document")
                 .version("1.0")
                 .description("Syzechuan Delivery API document")
                 .build();
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Admin")
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.syzechuan.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.syzechuan.controller.admin"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
     }
 
+    @Bean
+    public Docket docket2() {
+        ApiInfo apiInfo = new ApiInfoBuilder()
+                .title("Syzechuan Delivery API document")
+                .version("1.0")
+                .description("Syzechuan Delivery API document")
+                .build();
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .groupName("User")
+                .apiInfo(apiInfo)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.syzechuan.controller.user"))
+                .paths(PathSelectors.any())
+                .build();
+        return docket;
+    }
     /**
      * 设置静态资源映射
      * @param registry

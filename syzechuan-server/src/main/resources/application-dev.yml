@@ -18,3 +18,7 @@ syzechuan:
     port: 6379
     password: Zzt!12345
     database: 10
+
+  wechat:
+    appid: wx48bb1f171dda670e
+    secret: a8e1c26ec48c88df3d8ce8478b18f212

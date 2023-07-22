@@ -17,6 +17,7 @@ import com.syzechuan.mapper.SetmealMapper;
 import com.syzechuan.result.PageResult;
 import com.syzechuan.result.Result;
 import com.syzechuan.service.SetmealService;
+import com.syzechuan.vo.DishItemVO;
 import com.syzechuan.vo.SetmealVO;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -149,5 +150,15 @@ public class SetmealServiceImpl implements SetmealService {
                 .status(status)
                 .build();
         setmealMapper.update(setmeal);
+    }
+
+    public List<Setmeal> list(Setmeal setmeal) {
+        List<Setmeal> list = setmealMapper.list(setmeal);
+        return list;
+    }
+
+
+    public List<DishItemVO> getDishItemById(Long id) {
+        return setmealMapper.getDishItemBySetmealId(id);
     }
 }

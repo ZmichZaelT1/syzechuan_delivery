@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class OssConfiguration {
-
     @Bean
     @ConditionalOnMissingBean
     public AliOssUtil aliOssUtil(AliOssProperties aliOssProperties) {
