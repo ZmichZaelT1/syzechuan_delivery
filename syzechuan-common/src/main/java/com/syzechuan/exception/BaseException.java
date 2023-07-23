@@ -1,8 +1,5 @@
 package com.syzechuan.exception;
 
-/**
- * 业务异常
- */
 public class BaseException extends RuntimeException {
 
     public BaseException() {

@@ -18,7 +18,7 @@ import java.util.List;
 @RestController("userDishController")
 @RequestMapping("/user/dish")
 @Slf4j
-@Api(tags = "C端-菜品浏览接口")
+@Api(tags = "Dish Api")
 public class DishController {
     @Autowired
     private DishService dishService;
@@ -26,14 +26,8 @@ public class DishController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    /**
-     * 根据分类id查询菜品
-     *
-     * @param categoryId
-     * @return
-     */
+
     @GetMapping("/list")
-    @ApiOperation("根据分类id查询菜品")
     public Result<List<DishVO>> list(Long categoryId) {
 
         String key = "dish_" + categoryId;
@@ -44,7 +38,7 @@ public class DishController {
 
         Dish dish = new Dish();
         dish.setCategoryId(categoryId);
-        dish.setStatus(StatusConstant.ENABLE);//查询起售中的菜品
+        dish.setStatus(StatusConstant.ENABLE);
 
         list = dishService.listWithFlavor(dish);
 

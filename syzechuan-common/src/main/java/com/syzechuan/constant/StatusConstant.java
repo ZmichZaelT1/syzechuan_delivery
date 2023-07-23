@@ -1,7 +1,7 @@
 package com.syzechuan.constant;
 
 /**
- * 状态常量，启用或者禁用
+ * Status Constant
  */
 public class StatusConstant {
 

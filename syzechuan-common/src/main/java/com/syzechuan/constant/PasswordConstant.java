@@ -1,7 +1,7 @@
 package com.syzechuan.constant;
 
 /**
- * 密码常量
+ * Password
  */
 public class PasswordConstant {
 
